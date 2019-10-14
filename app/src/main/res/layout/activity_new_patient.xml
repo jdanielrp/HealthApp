@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:mstb="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ScrollViewPatient"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2" >
+
+        <TableRow>
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:layout_marginTop="10dip"
+                android:layout_marginRight="5dip"
+                android:tint="#55ff0000" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.35"
+                android:text="@string/nombre"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/txtNombre"
+                style="@style/MyEditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_weight="0.65"
+                android:textSize="16sp"
+                android:layout_margin="5dp"
+                android:inputType="text"
+                android:textColor="#000" />
+
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.35"
+                android:text="@string/apellidos"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/txtApellidos"
+                style="@style/MyEditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_weight="0.65"
+                android:textSize="16sp"
+                android:layout_margin="5dp"
+                android:inputType="text"
+                android:textColor="#000" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="0dp"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="@string/genero"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <org.honorato.multistatetogglebutton.MultiStateToggleButton
+                android:id="@+id/mstb_multi_id_genero"
+                android:layout_width="2dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="0.65"
+                android:layout_marginTop="5dip"
+                android:layout_marginBottom="5dip"
+                mstb:values="@array/genero_array"
+                mstb:mstbPrimaryColor="@color/dark_blue"
+                mstb:mstbSecondaryColor="@color/white"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:gravity="center_vertical"
+                android:text="@string/edad"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/txtEdad"
+                style="@style/MyEditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_weight="0.65"
+                android:textSize="16sp"
+                android:hint="Años"
+                android:layout_margin="5dp"
+                android:inputType="number"
+                android:textColor="#000" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="@string/peso"
+                android:gravity="center_vertical"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/txtPeso"
+                style="@style/MyEditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_weight="0.65"
+                android:layout_margin="5dp"
+                android:hint="Kilogramos"
+                android:textSize="16sp"
+                android:inputType="numberDecimal"
+                android:textColor="#000" />
+
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="@string/altura"
+                android:gravity="center_vertical"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/txtAltura"
+                style="@style/MyEditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_weight="0.65"
+                android:layout_margin="5dp"
+                android:hint="Metros"
+                android:textSize="16sp"
+                android:inputType="numberDecimal"
+                android:textColor="#000" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="0dp"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Cirugía"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <org.honorato.multistatetogglebutton.MultiStateToggleButton
+                android:id="@+id/mstb_multi_id"
+                android:layout_width="2dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="0.65"
+                android:layout_marginTop="5dip"
+                android:layout_marginBottom="5dip"
+                mstb:values="@array/procedures_array"
+                mstb:mstbPrimaryColor="@color/dark_blue"
+                mstb:mstbSecondaryColor="@color/white"/>
+        </TableRow>
+        <TableRow>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.35"
+            android:text="@string/estado"
+            android:gravity="center_vertical"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinner1"
+                android:layout_weight="0.65"
+                style="@style/MyEditTextStyle"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/estados_arrays" />
+
+        </TableRow>
+        <TableRow
+            android:layout_weight=".1"
+            android:gravity="center"
+            android:layout_marginTop="10dp">
+            <Button
+                android:id="@+id/btnPatientSubmit"
+                android:layout_width="109dp"
+                android:layout_height="30dp"
+                android:background="@drawable/buttonshape"
+                android:text="@string/continuar"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+            <Button
+                android:id="@+id/btnPatientCancel"
+                android:layout_width="109dp"
+                android:layout_height="30dp"
+                android:background="@drawable/redbuttonshape"
+                android:text="@string/cancel"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+        </TableRow>
+    </TableLayout>
+</ScrollView>

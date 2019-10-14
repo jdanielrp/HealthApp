@@ -1,0 +1,103 @@
+<resources>
+    <string name="app_name">CiruBari</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_reportes">Reportes</string>
+    <string name="menu_dosis">Dosis</string>
+    <string name="menu_calculadoras">Calculadoras</string>
+    <string name="menu_nuevo">Nuevo</string>
+
+    <string name="generar">Generar</string>
+    <string name="cancel">Cancelar</string>
+
+    <string name="procedimiento">Procedimiento</string>
+    <string-array name="procedures_array">
+        <item>Manga</item>
+        <item>Bypass</item>
+        <item>SADI</item>
+    </string-array>
+
+    <string-array name="genero_array">
+        <item>Masculino</item>
+        <item>Femenino</item>
+    </string-array>
+
+    <string name="fecha_nacimiento">Fecha de Nac.</string>
+    <string name="genero">Género</string>
+    <string name="edad">Edad</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="altura">Altura</string>
+    <string name="peso">Peso</string>
+    <string name="pais">País</string>
+    <string name="estado">Estado</string>
+    <string name="continuar">Continuar</string>
+    <string name="nombreReporteRiesgo">Reporte de riesgo quirúrgico</string>
+
+    <string-array name="estados_arrays">
+        <item>-Seleccione-</item>
+        <item>Aguascalientes</item>
+        <item>Baja California</item>
+        <item>Baja California Sur</item>
+        <item>Campeche</item>
+        <item>Coahuila</item>
+        <item>Chiapas</item>
+        <item>Chihuahua</item>
+        <item>Ciudad de México</item>
+        <item>Colima</item>
+        <item>Durango</item>
+        <item>Estado de México</item>
+        <item>Guanajuato</item>
+        <item>Guerrero</item>
+        <item>Hidalgo</item>
+        <item>Jalisco</item>
+        <item>Michoacán</item>
+        <item>Morelos</item>
+        <item>Nayarit</item>
+        <item>Nuevo León</item>
+        <item>Oaxaca</item>
+        <item>Puebla</item>
+        <item>Queretaro</item>
+        <item>Quintana Roo</item>
+        <item>Sonora</item>
+        <item>San Luis Potosi</item>
+        <item>Sinaloa</item>
+        <item>Sonora</item>
+        <item>Tabasco</item>
+        <item>Tamaulipas</item>
+        <item>Tlaxcala</item>
+        <item>Yucatán</item>
+        <item>Zacatecas</item>
+    </string-array>
+
+    <string-array name="reportes_arrays">
+        <item>-Seleccione Tipo de Reporte-</item>
+        <item>Reporte por Género</item>
+        <item>Reporte por Ubicación Geográfica</item>
+        <item>Reporte por Edad</item>
+        <item>Reporte por Tipo de Procedimiento</item>
+    </string-array>
+    <string name="generar_pdf">Generar PDF</string>
+    <string name="dots">…</string>
+    <string name="fecha_inicial">Fecha Inicial</string>
+    <string name="fecha_final">Fecha Final</string>
+    <string name="titulo_reportes">Módulo de Reportes</string>
+    <string name="habilitar_filtros">Habilitar Filtros</string>
+
+    <string name="cuestionario1">¿Fuma?</string>
+    <string name="cuestionario2">¿Consume alguna droga?</string>
+    <string name="cuestionario3">¿Ha tenido algún infarto en los últimos 6 meses?</string>
+    <string name="cuestionario4">¿Le han puesto sangre?</string>
+    <string name="cuestionario5">¿Lo han operado anteriormente?</string>
+    <string name="cuestionario6">¿Ha sido diagnosticado con Diabetes?</string>
+    <string name="cuestionario7">¿Es hipertenso?</string>
+    <string name="cuestionario8">¿Hepatopatías?</string>
+    <string name="cuestionario9">¿Nefropatías?</string>
+    <string name="cuestionario10">¿Sufre de convulsiones?</string>
+    <string name="cuestionario11">¿Ha padecido de asma?</string>
+    <string name="cuestionario12">¿Tiene dientes postizos?</string>
+    <string name="cuestionario13">¿Ronca de noche?</string>
+    <string name="cuestionario14">¿Tiene varices en las piernas?</string>
+</resources>
