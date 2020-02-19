@@ -260,16 +260,17 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
                 // add a couple of blank lines
                 document.add( Chunk.NEWLINE );
 
+                Font fontH1 = new Font(urName, 22.0f, Font.NORMAL, BaseColor.BLACK);
                 //we have two columns in our table
                 PdfPTable LogTable = new PdfPTable(2);
                 //create a cell object
                 PdfPCell table_cell;
                 while (rs.next()) {
                     String columna = rs.getString("columna");
-                    table_cell = new PdfPCell(new Phrase(columna));
+                    table_cell = new PdfPCell(new Phrase(columna, fontH1));
                     LogTable.addCell(table_cell);
                     String total = rs.getString("total");
-                    table_cell = new PdfPCell(new Phrase(total));
+                    table_cell = new PdfPCell(new Phrase(total, fontH1));
                     LogTable.addCell(table_cell);
                 }
                 /* Attach report table to PDF */
@@ -281,7 +282,6 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
                 /* Close all DB related objects */
                 rs.close();
                 stmt.close();
-                conn.close();
             }
         } catch (SQLException e) {
             e.printStackTrace();

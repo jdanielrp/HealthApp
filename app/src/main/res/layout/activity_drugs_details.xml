@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/ScrollViewRisk"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:scrollbars="vertical"
-    android:background="@color/white">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ScrollDrugsDetails"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,7 +14,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/nombreReporteRiesgo"
+            android:text="Ketorolaco"
             android:textAlignment="center"
             android:gravity="center"
             android:textColor="@android:color/holo_blue_dark"
@@ -27,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
-            android:text="Nombre del Paciente:"
+            android:text="Mecanismo de acción:"
             android:textColor="@android:color/holo_blue_light"
             android:textSize="17sp"
             android:textStyle="bold" />
@@ -35,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
-            android:text="Víctor Alejandro Angulo Ortega"
+            android:text="@string/mecanismo"
             android:textColor="@android:color/darker_gray"
             android:textSize="17sp"
             android:textStyle="bold" />
@@ -44,7 +43,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
-            android:text="Edad:"
+            android:layout_marginTop="8dp"
+            android:text="Indicaciones terapéuticas:"
             android:textColor="@android:color/holo_blue_light"
             android:textSize="17sp"
             android:textStyle="bold" />
@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
-            android:text="40 años"
+            android:text="@string/indicaciones"
             android:textColor="@android:color/darker_gray"
             android:textSize="17sp"
             android:textStyle="bold" />
@@ -61,7 +61,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
-            android:text="Peso:"
+            android:layout_marginTop="8dp"
+            android:text="Contraindicaciones:"
             android:textColor="@android:color/holo_blue_light"
             android:textSize="17sp"
             android:textStyle="bold" />
@@ -69,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
-            android:text="100 Kg"
+            android:text="@string/contraindicaciones"
             android:textColor="@android:color/darker_gray"
             android:textSize="17sp"
             android:textStyle="bold" />
@@ -78,7 +79,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
-            android:text="Altura:"
+            android:layout_marginTop="8dp"
+            android:text="Advertencias y precauciones:"
             android:textColor="@android:color/holo_blue_light"
             android:textSize="17sp"
             android:textStyle="bold" />
@@ -86,7 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
-            android:text="1.70 metros"
+            android:text="Ancianos, I.H. (elevación transitoria de parámetros hepáticos), antecedentes de enf. inflamatoria intestinal (colitis ulcerosa y enf. de Crohn), I.R. leve (½ dosis sin superar los 60 mg/día), descompensación cardiaca, HTA o patología similar (produce retención hídrica y edema), administración simultánea con metotrexato (potencia su toxicidad). Riesgo de toxicidad gastrointestinal grave (irritación gastrointestinal, sangrado, ulceración y perforación) en particular ancianos o delimitados. Ketorolaco inhibe la agregación plaquetaria y prolonga el tiempo de sangría, precaución tto. con anticoagulantes dicumarínicos o heparina. Monitorizar función renal y hepática. Riesgo de reacción cutánea al inicio del tto. y reacciones anafilácticas (broncoespasmo, rubor, rash, hipotensión, edema laríngeo y angioedema). Puede afectar la fertilidad femenina."
             android:textColor="@android:color/darker_gray"
             android:textSize="17sp"
             android:textStyle="bold" />
@@ -95,25 +97,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
-            android:text="Género:"
-            android:textColor="@android:color/holo_blue_light"
-            android:textSize="17sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.25"
-            android:text="Masculino"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="17sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.25"
-            android:text="IMC:"
+            android:layout_marginTop="8dp"
+            android:text="Reacciones adversas:"
             android:textColor="@android:color/holo_blue_light"
             android:textSize="17sp"
             android:textStyle="bold" />
@@ -122,42 +107,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
-            android:text="34.60 (Obesidad Tipo 1)"
+            android:text="Irritación gastrointestinal, sangrado, ulceración y perforación, dispepsia, náusea, diarrea, somnolencia, cefalea, vértigos, sudoración, vértigo, retención hídrica y edema."
             android:textColor="@android:color/darker_gray"
             android:textSize="17sp"
             android:textStyle="bold" />
-
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="55dp"
-            android:layout_marginTop="5dp"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/moderado"
-            android:textAlignment="center" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.15"
-            android:text="Recomendaciones:"
-            android:layout_marginTop="5dp"
-            android:textColor="@android:color/holo_blue_dark"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.20"
-            android:textSize="17sp"
-            android:textColor="@android:color/darker_gray"
-            android:textStyle="bold"
-            android:text="\n\u2022 Se recomienda realizar una manga gástrica.
-                           \n\u2022 Dejar de fumar un mes antes.
-                            \n\u2022 Tomar metformina 850 mg una cada 8 horas.
-                             \n\u2022 Tomar silimarina 800 mg una cada 8 horas.
-                              \n\u2022 Suspender clopidogrel y aspirina una semana previa a la cirugía.
-                               \n\u2022 Realizar estudios de urea y creatinina." >
-        </TextView>
     </LinearLayout>
 </ScrollView>

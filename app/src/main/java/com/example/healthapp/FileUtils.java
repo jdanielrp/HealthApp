@@ -139,28 +139,34 @@ public class FileUtils {
                         "group by estado.nombre";
                 break;
             case "Reporte por Género":
-                query = "";
+                query = "select paciente.genero, count(*) from dbo.paciente \n" +
+                        "group by paciente.genero;";
                 break;
             case "Reporte por Edad":
-                query = "SELECT" +
+                query =  "SELECT" +
                         " CASE WHEN (edad BETWEEN 10 AND 19) THEN 'De 10 a 19' ELSE" +
                         " CASE WHEN (edad BETWEEN 20 AND 29) THEN 'De 20 a 29' ELSE" +
                         " CASE WHEN (edad BETWEEN 30 AND 39) THEN 'De 30 a 39' ELSE" +
                         " CASE WHEN (edad BETWEEN 40 AND 49) THEN 'De 40 a 49' ELSE" +
                         " CASE WHEN (edad BETWEEN 50 and 59) THEN 'De 50 a 59' ELSE" +
+                        " CASE WHEN (edad BETWEEN 60 and 69) THEN 'De 60 a 69' ELSE" +
                         " CASE WHEN (edad >= 70) THEN 'De 70 o más'" +
-                        " END END END END END END columna," +
-                        " COUNT(*) total" +
+                        " END END END END END END END as columna," +
+                        " COUNT(*) as total" +
                         " FROM dbo.PACIENTE" +
                         " GROUP BY CASE WHEN (edad BETWEEN 10 AND 19) THEN 'De 10 a 19' ELSE" +
                         " CASE WHEN (edad BETWEEN 20 AND 29) THEN 'De 20 a 29' ELSE" +
                         " CASE WHEN (edad BETWEEN 30 AND 39) THEN 'De 30 a 39' ELSE" +
                         " CASE WHEN (edad BETWEEN 40 AND 49) THEN 'De 40 a 49' ELSE" +
                         " CASE WHEN (edad BETWEEN 50 and 59) THEN 'De 50 a 59' ELSE" +
-                        " CASE WHEN (edad >= 70) THEN 'De 70 o más' END END END END END END";
+                        " CASE WHEN (edad BETWEEN 60 and 69) THEN 'De 60 a 69' ELSE" +
+                        " CASE WHEN (edad >= 70) THEN 'De 70 o más' END END END END END END END";
                 break;
             case "Reporte por Tipo de Procedimiento":
-                query = "";
+                query = "select cirugia.nombre as columna, count(*) as total from dbo.cirugia" +
+                        " inner join dbo.PACIENTE" +
+                        " on cirugia.id_cirugia = paciente.id_cirugia" +
+                        " group by cirugia.nombre";
                 break;
             default:
                 break;

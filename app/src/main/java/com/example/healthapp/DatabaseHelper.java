@@ -19,22 +19,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
-        //Create table
-        db.execSQL(DatabaseOptions.INSERT_USERS_);
-        String[] listOfQueries = {};
-        db.beginTransaction();
+    public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-        try {
-            for (String insertQuery : listOfQueries) {  // loop through your records
-                db.execSQL(insertQuery);
-            }
-
-            db.setTransactionSuccessful();
-        }
-        finally {
-            db.endTransaction();
-        }
     }
 
     @Override
