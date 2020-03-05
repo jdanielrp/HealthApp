@@ -47,6 +47,7 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.pdf.draw.LineSeparator;
+import com.itextpdf.text.Image;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -208,7 +209,7 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
             if (conn == null) {
 
             } else {
-                String query = FileUtils.getNombreReporte(nombreReporte);
+                String query = FileUtils.getQuery(nombreReporte);
 
                 Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
                         ResultSet.CONCUR_READ_ONLY);
@@ -243,16 +244,15 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
                 lineSeparator.setLineColor(new BaseColor(0, 0, 0, 68));
 
                 // Title Order Details...
-                // Adding Title....
-                Font mOrderDetailsTitleFont = new Font(urName, 36.0f, Font.NORMAL, BaseColor.BLACK);
-                Chunk mOrderDetailsTitleChunk = new Chunk("Reporte CiruBari", mOrderDetailsTitleFont);
-                Paragraph mOrderDetailsTitleParagraph = new Paragraph(mOrderDetailsTitleChunk);
-                mOrderDetailsTitleParagraph.setAlignment(Element.ALIGN_CENTER);
-                document.add(mOrderDetailsTitleParagraph);
-
+                // Creating image from a URL
+                String url = "https://cirubari.com/images/content/logo-s.png";
+                Image image = Image.getInstance(url);
+                image.scaleAbsolute(260f, 200f);
+                image.setAlignment(Element.ALIGN_CENTER);
+                document.add(image);
                 // Adding Report Name....
-                mOrderDetailsTitleFont = new Font(urName, 30.0f, Font.NORMAL, BaseColor.BLACK);
-                mOrderDetailsTitleChunk = new Chunk(nombreReporte, mOrderDetailsTitleFont);
+                Font mOrderDetailsTitleFont = new Font(urName, 30.0f, Font.NORMAL, BaseColor.BLACK);
+                Chunk mOrderDetailsTitleChunk = new Chunk(nombreReporte, mOrderDetailsTitleFont);
                 Paragraph mReportNameParagraph = new Paragraph(mOrderDetailsTitleChunk);
                 mReportNameParagraph.setAlignment(Element.ALIGN_CENTER);
                 document.add(mReportNameParagraph);
@@ -261,16 +261,26 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
                 document.add( Chunk.NEWLINE );
 
                 Font fontH1 = new Font(urName, 22.0f, Font.NORMAL, BaseColor.BLACK);
+                Font fontH2 = new Font(urName, 22.0f, Font.BOLD, BaseColor.BLACK);
                 //we have two columns in our table
                 PdfPTable LogTable = new PdfPTable(2);
                 //create a cell object
                 PdfPCell table_cell;
+                //add headers
+                table_cell = new PdfPCell(new Phrase(FileUtils.getHeader(nombreReporte), fontH2));
+                table_cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                LogTable.addCell(table_cell);
+                table_cell = new PdfPCell(new Phrase("Total", fontH2));
+                table_cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                LogTable.addCell(table_cell);
                 while (rs.next()) {
                     String columna = rs.getString("columna");
                     table_cell = new PdfPCell(new Phrase(columna, fontH1));
+                    table_cell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     LogTable.addCell(table_cell);
                     String total = rs.getString("total");
                     table_cell = new PdfPCell(new Phrase(total, fontH1));
+                    table_cell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     LogTable.addCell(table_cell);
                 }
                 /* Attach report table to PDF */
@@ -282,6 +292,7 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
                 /* Close all DB related objects */
                 rs.close();
                 stmt.close();
+                conn.close();
             }
         } catch (SQLException e) {
             e.printStackTrace();

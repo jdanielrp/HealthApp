@@ -49,16 +49,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return user;
     }
 
-    public Cursor getAllDrugs(){
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(DatabaseOptions.DRUGS_TABLE, new String[]{DatabaseOptions.ID_DRUG,
-                        DatabaseOptions.NAME, DatabaseOptions.DESCRIPTION}, null,
-                null, null, null, null, null);
-        if (cursor != null)
-            cursor.moveToFirst();
-        return cursor;
-    }
-
 
     public void addUser(User user) {
         SQLiteDatabase db = this.getWritableDatabase();

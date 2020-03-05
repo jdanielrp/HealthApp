@@ -129,7 +129,28 @@ public class FileUtils {
         return dir.getPath() + File.separator;
     }
 
-    public static String getNombreReporte(String nombreReporte) {
+    public static String getHeader(String nombreReporte) {
+        String header = "";
+        switch (nombreReporte) {
+            case "Reporte por Ubicación Geográfica":
+                header = "Estado";
+                break;
+            case "Reporte por Género":
+                header = "Género";
+                break;
+            case "Reporte por Edad":
+                header =  "Rango de Edad";
+                break;
+            case "Reporte por Tipo de Procedimiento":
+                header = "Procedimiento";
+                break;
+            default:
+                break;
+        }
+        return header;
+    }
+
+    public static String getQuery(String nombreReporte) {
         String query = "";
         switch (nombreReporte) {
             case "Reporte por Ubicación Geográfica":
@@ -139,28 +160,24 @@ public class FileUtils {
                         "group by estado.nombre";
                 break;
             case "Reporte por Género":
-                query = "select paciente.genero, count(*) from dbo.paciente \n" +
-                        "group by paciente.genero;";
+                query = "select genero as columna, count(*) as total from dbo.paciente " +
+                        " group by genero";
                 break;
             case "Reporte por Edad":
-                query =  "SELECT" +
-                        " CASE WHEN (edad BETWEEN 10 AND 19) THEN 'De 10 a 19' ELSE" +
-                        " CASE WHEN (edad BETWEEN 20 AND 29) THEN 'De 20 a 29' ELSE" +
-                        " CASE WHEN (edad BETWEEN 30 AND 39) THEN 'De 30 a 39' ELSE" +
-                        " CASE WHEN (edad BETWEEN 40 AND 49) THEN 'De 40 a 49' ELSE" +
-                        " CASE WHEN (edad BETWEEN 50 and 59) THEN 'De 50 a 59' ELSE" +
-                        " CASE WHEN (edad BETWEEN 60 and 69) THEN 'De 60 a 69' ELSE" +
-                        " CASE WHEN (edad >= 70) THEN 'De 70 o más'" +
-                        " END END END END END END END as columna," +
-                        " COUNT(*) as total" +
-                        " FROM dbo.PACIENTE" +
-                        " GROUP BY CASE WHEN (edad BETWEEN 10 AND 19) THEN 'De 10 a 19' ELSE" +
-                        " CASE WHEN (edad BETWEEN 20 AND 29) THEN 'De 20 a 29' ELSE" +
-                        " CASE WHEN (edad BETWEEN 30 AND 39) THEN 'De 30 a 39' ELSE" +
-                        " CASE WHEN (edad BETWEEN 40 AND 49) THEN 'De 40 a 49' ELSE" +
-                        " CASE WHEN (edad BETWEEN 50 and 59) THEN 'De 50 a 59' ELSE" +
-                        " CASE WHEN (edad BETWEEN 60 and 69) THEN 'De 60 a 69' ELSE" +
-                        " CASE WHEN (edad >= 70) THEN 'De 70 o más' END END END END END END END";
+                query =  "SELECT CASE WHEN (edad BETWEEN 10 AND 19) THEN 'De 10 a 19' ELSE " +
+                        " CASE WHEN (edad BETWEEN 20 AND 29) THEN 'De 20 a 29' ELSE " +
+                        " CASE WHEN (edad BETWEEN 30 AND 39) THEN 'De 30 a 39' ELSE " +
+                        " CASE WHEN (edad BETWEEN 40 AND 49) THEN 'De 40 a 49' ELSE " +
+                        " CASE WHEN (edad BETWEEN 50 AND 79) THEN 'De 50 a 79' " +
+                        " END END END END END as columna,\n" +
+                        " COUNT(*) as total\n" +
+                        " FROM dbo.PACIENTE\n" +
+                        " GROUP BY CASE WHEN (edad BETWEEN 10 AND 19) THEN 'De 10 a 19' ELSE\n" +
+                        " CASE WHEN (edad BETWEEN 20 AND 29) THEN 'De 20 a 29' ELSE " +
+                        " CASE WHEN (edad BETWEEN 30 AND 39) THEN 'De 30 a 39' ELSE " +
+                        " CASE WHEN (edad BETWEEN 40 AND 49) THEN 'De 40 a 49' ELSE " +
+                        " CASE WHEN (edad BETWEEN 50 AND 79) THEN 'De 50 a 79' " +
+                        " END END END END END";
                 break;
             case "Reporte por Tipo de Procedimiento":
                 query = "select cirugia.nombre as columna, count(*) as total from dbo.cirugia" +
